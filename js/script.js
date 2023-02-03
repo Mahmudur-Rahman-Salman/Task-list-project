@@ -31,9 +31,6 @@ function addTask(e) {
         link.innerHTML = "X";
         li.appendChild(link);
         taskList.appendChild(li);
-
-        // local storage 
-        storeTaskInLocalStorage(newTaskInput.value);
         newTaskInput.value = "";
     }
     e.preventDefault()
@@ -73,16 +70,3 @@ function filterTaskSearch(e) {
 
 }
 
-// store in local storage
-
-function storeTaskInLocalStorage(task) {
-    let tasks;
-    if (localStorage.getItem('tasks' === null)) {
-        tasks = [];
-    }
-    else {
-        tasks = JSON.parse(localStorage.getItem(tasks));
-    }
-    tasks.push(task);
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
